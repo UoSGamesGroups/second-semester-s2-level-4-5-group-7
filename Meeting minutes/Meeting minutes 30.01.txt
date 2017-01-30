@@ -1,0 +1,11 @@
+30/01/17
+All members in attendance
+
+Discussed further possible ideas, the current working concept is a demolition derby game where players use an angry birds style system to propel cars into others, the players 
+take turns to do this and whoever destroys their opponents cars will win. 
+
+Divided up tasks for the run-up to the presentation.
+Tom will create the presentation on Google docs (to later be uploaded to github when finished) to allow for group members to simultaneously add things to the presentation when needed
+Oliver will create a prototype
+Amy will create a sketched mockup of the game screen 
+George will create some mood boards to describe the game
