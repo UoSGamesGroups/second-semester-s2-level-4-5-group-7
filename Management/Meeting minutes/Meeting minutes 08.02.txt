@@ -1,0 +1,17 @@
+08/02/17 - 9:10
+Members in attendance: - Oliver, Tom, Amy
+George had to take care of his niece and so couldn't make the meeting
+
+Amy has the task of designing the UI
+Oliver has the task of creating a cooldown for shooting the rockets and creating another rocket with a different interaction
+Tom has the task of designing some pickups and some environmental hazards
+George has the task of creating asteroids and some backgrounds
+
+We spoke about some possible environmental hazards (Comets, Black holes) and also some possible pickups (armour, health, speed for example) 
+
+We also spoke about some possible ways to repopulate the game arena after asteroids have been destroyed/ moved out of the game area.
+possible ways to do this is to have them be introduced via comets, drift in from the outside of the screen.
+
+discussed adding a "dodge booster" which has a limited number of uses and allows players to quickly get out of the way of an incoming asteroid.
+
+discussed the possibility of adding a line protruding from the front of each player's spaceship to aid in aim
