@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class fireRocketp2 : MonoBehaviour
 {
-    public GameObject rocketPrefabp2;
-    private GameObject player2;
+    public GameObject rocketPrefab;
     private GameObject p2CurrentRocket;
+    public GameObject rocketprefabv2;
     private const int Speed = 6;
     private bool fired = false;
+    private bool fired2 = false;
+    private float cooldown2 = 4;
     private float cooldown = 2;
 
-    // Use this for initialization
-    void Start()
-    {
-        player2 = GameObject.FindGameObjectWithTag("Player2");
-        // currentRocket = null;
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightControl)&& !fired)
         {
-            GameObject rocket = Instantiate(rocketPrefabp2, new Vector3(player2.transform.position.x, player2.transform.position.y, player2.transform.position.z), Quaternion.identity) as GameObject;
-            rocket.transform.rotation = player2.transform.rotation;
+            GameObject rocket = Instantiate(rocketPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
+            rocket.transform.rotation = gameObject.transform.rotation;
             p2CurrentRocket = rocket;
             fired = true;
         }
+        if (Input.GetKeyDown(KeyCode.RightShift) && !fired2)
+        {
+            GameObject rocket = Instantiate(rocketprefabv2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
+            rocket.transform.rotation = gameObject.transform.rotation;
+            p2CurrentRocket = rocket;
+            fired2 = true;
+        }
+
         if (p2CurrentRocket != null)
         {
             p2CurrentRocket.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
@@ -40,6 +44,15 @@ public class fireRocketp2 : MonoBehaviour
             {
                 fired = false;
                 cooldown = 2f;
+            }
+        }
+        if(fired2)
+        {
+            cooldown2 -= 1 * Time.deltaTime;
+            if(cooldown2<= 0)
+            {
+                fired2 = false;
+                cooldown2 = 4f;
             }
         }
     }
