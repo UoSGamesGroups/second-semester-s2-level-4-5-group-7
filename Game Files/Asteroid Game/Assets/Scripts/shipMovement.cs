@@ -8,7 +8,7 @@ public class shipMovement : MonoBehaviour {
     private GameObject player1;
     private GameObject player2;
     const int MaxSpeed = 5;
-
+    int Speed = 5;
    [SerializeField] private float p1currSpeed = 0;
    [SerializeField] private float p2currSpeed = 0;
 
