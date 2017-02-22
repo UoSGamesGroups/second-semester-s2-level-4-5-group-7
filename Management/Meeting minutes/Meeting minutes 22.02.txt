@@ -15,3 +15,9 @@ Also discussed the potential ways we could repopulate the asteroids on the scree
 -spawn new ones
 -new ones fly in from the edge of the screen
 -pseudo procedural generation
+
+
+During rob's meeting 3 main areas in which groups fail:-
+communication - including lack of co-ordination. Lack of emails, lack of work being completed on time, attendance
+Time management
+overscoping
