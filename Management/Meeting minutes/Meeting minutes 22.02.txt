@@ -1,0 +1,17 @@
+Members in attendance - Oliver, Amy, Thomas
+
+Duration:- 10am-11am
+
+George has not attended the meeting and has not provided any relevant reason as to why.
+
+Divided up tasks for this week.
+This includes Amy and Thomas collecting some playtesting feedback
+George has been given the task of creating a start menu and a pause menu for the game
+Oliver has the task of correcting a bug with the rockets and implementing a black hole hazard
+Amy has been given the task of creating an animation for the booster rockets and iterating on the ship designs
+Thomas has been given the task of ensuring that our gameplay loop hits the brief and creating some sprites for the solar flare
+
+Also discussed the potential ways we could repopulate the asteroids on the screen - 
+-spawn new ones
+-new ones fly in from the edge of the screen
+-pseudo procedural generation
