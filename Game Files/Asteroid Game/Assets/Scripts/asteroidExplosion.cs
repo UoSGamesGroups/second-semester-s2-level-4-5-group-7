@@ -19,7 +19,7 @@ public class asteroidExplosion : MonoBehaviour {
             for (int i = 0; i < 4; i++)
             {
                 GameObject asteroid = Instantiate(asteroidPiece, gameObject.transform.position, transform.rotation) as GameObject;
-                asteroid.transform.localScale = new Vector3((gameObject.transform.localScale.x / 4), (gameObject.transform.localScale.y / 4), (gameObject.transform.localScale.z / 4));
+                asteroid.transform.localScale = new Vector3((gameObject.transform.localScale.x), (gameObject.transform.localScale.y), (gameObject.transform.localScale.z));
                 asteroid.GetComponent<Rigidbody2D>().velocity = new Vector3(Random.Range(-6f, 6f), Random.Range(-6f, 6f), 0);
                 asteroid.GetComponent<Rigidbody2D>().mass = gameObject.GetComponent<Rigidbody2D>().mass / 4;     
             }

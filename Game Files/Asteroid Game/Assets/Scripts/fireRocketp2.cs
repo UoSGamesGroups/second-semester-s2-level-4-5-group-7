@@ -12,7 +12,7 @@ public class fireRocketp2 : MonoBehaviour
     public GameObject BlastRocketUI;
     public GameObject FragmentRocketUI;
 
-    private const int Speed = 6;
+    private const int Speed = 15;
     private bool fired = false;
     private bool fired2 = false;
     private float cooldown2 = 4;
