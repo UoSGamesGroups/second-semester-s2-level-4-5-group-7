@@ -9,7 +9,7 @@ public class BlackHole : MonoBehaviour {
     private GameObject p2;
     private Rigidbody2D p1rb;
     private Rigidbody2D p2rb;
-    private const int range = 20;
+    private const int range = 4;
     private const float gravity = 100f;
 
 
