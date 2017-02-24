@@ -26,6 +26,8 @@ public class BlackHole : MonoBehaviour {
     void Update () {
 	    Vector2 p1Pos = (p1.transform.position);
         Vector2 thisPos = (gameObject.transform.position);
+
+        //if the ship is within a certain area around the black hole, pull it into the centre
         if(p1Pos.x < thisPos.x + range && p1Pos.x > thisPos.x -range && p1Pos.y <thisPos.y + range && p1Pos.y > thisPos.y - range)
         {
             if (p1Pos.x < thisPos.x)

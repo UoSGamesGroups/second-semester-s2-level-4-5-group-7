@@ -13,7 +13,7 @@ public class asteroidExplosion : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        //instantiate 4 smaller asteroids with less mass and a random velocity
         if (collision.collider.tag == "rocketT2")
         {
             for (int i = 0; i < 4; i++)
