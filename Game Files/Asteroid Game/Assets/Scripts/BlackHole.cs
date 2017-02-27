@@ -30,28 +30,36 @@ public class BlackHole : MonoBehaviour {
         //if the ship is within a certain area around the black hole, pull it into the centre
         if(p1Pos.x < thisPos.x + range && p1Pos.x > thisPos.x -range && p1Pos.y <thisPos.y + range && p1Pos.y > thisPos.y - range)
         {
+
+            float xVel = 0.0f;
+             float yVel = 0.0f;
+
             if (p1Pos.x < thisPos.x)
             {
-                p1rb.velocity = new Vector2(p1rb.velocity.x + gravity, p1rb.velocity.y) * Time.deltaTime;
+                xVel = p1rb.velocity.x + gravity;
+                //p1rb.velocity = new Vector2(p1rb.velocity.x + gravity, p1rb.velocity.y) * Time.deltaTime;
                 Debug.Log("+x");
             }
             else if (p1Pos.x > thisPos.x)
             {
-                p1rb.velocity = new Vector2(p1rb.velocity.x - gravity, p1rb.velocity.y) * Time.deltaTime;
+                xVel = p1rb.velocity.x - gravity;
+                //p1rb.velocity = new Vector2(p1rb.velocity.x - gravity, p1rb.velocity.y) * Time.deltaTime;
                 Debug.Log("-x");
             }
             if (p1Pos.y < thisPos.y)
             {
-                p1rb.velocity = new Vector2(p1rb.velocity.x, p1rb.velocity.y + gravity) * Time.deltaTime;
+                yVel = p1rb.velocity.y + gravity;
+                //p1rb.velocity = new Vector2(p1rb.velocity.x, p1rb.velocity.y + gravity) * Time.deltaTime;
                 Debug.Log("+y");
             }
             else if (p1Pos.y > thisPos.y + range)
             {
-                p1rb.velocity = new Vector2(p1rb.velocity.x, p1rb.velocity.y - gravity) * Time.deltaTime;
+                yVel = p1rb.velocity.y - gravity;
+                //p1rb.velocity = new Vector2(p1rb.velocity.x, p1rb.velocity.y - gravity) * Time.deltaTime;
                 Debug.Log("-y");
             }
             //    Debug.Log("here");
-
+            p1rb.velocity = new Vector2(xVel, yVel) * Time.deltaTime;
 
         }
 	}
