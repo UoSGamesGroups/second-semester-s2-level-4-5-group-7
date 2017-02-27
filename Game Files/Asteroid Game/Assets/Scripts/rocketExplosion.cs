@@ -27,7 +27,7 @@ public class rocketExplosion : MonoBehaviour {
         if(collision.tag == "asteroid")
         {
             explode = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

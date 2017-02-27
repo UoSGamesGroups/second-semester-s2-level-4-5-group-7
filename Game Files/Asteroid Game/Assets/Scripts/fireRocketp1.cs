@@ -17,6 +17,10 @@ public class fireRocketp1 : MonoBehaviour {
     private float cooldown2;
     private bool fired = false;
 
+
+    public Sprite frag;
+    public Sprite blast;
+
     #region Change these to alter the cooldowns
     private float BlastCooldown = 2f;
     private float FragmentCooldown = 4f;
@@ -42,6 +46,7 @@ public class fireRocketp1 : MonoBehaviour {
         {
             GameObject rocket = Instantiate(rocketPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
             rocket.transform.rotation = gameObject.transform.rotation;
+            rocket.GetComponent<SpriteRenderer>().sprite = blast;
             p1CurrentRocket = rocket;
             fired = true;
         }
@@ -50,6 +55,7 @@ public class fireRocketp1 : MonoBehaviour {
         {
             GameObject rocket = Instantiate(rocketPrefabv2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
             rocket.transform.rotation = gameObject.transform.rotation;
+            rocket.GetComponent<SpriteRenderer>().sprite = frag;
             p1CurrentRocket = rocket;
             fired2 = true;
         }
