@@ -7,10 +7,10 @@ public class BlackHole : MonoBehaviour {
 
     private GameObject p1;
     private GameObject p2;
-    private Rigidbody2D p1rb;
-    private Rigidbody2D p2rb;
+    private Rigidbody2D p1rb;//player 1's rigidbody
+    private Rigidbody2D p2rb;//player 2's ri
     private const int range = 4;
-    private const float gravity = 100f;
+    private const float intensity = 100f;
 
 
 	// Use this for initialization
@@ -25,8 +25,10 @@ public class BlackHole : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 	    Vector2 p1Pos = (p1.transform.position);
+        Vector2 p2Pos = (p2.transform.position);
         Vector2 thisPos = (gameObject.transform.position);
 
+        #region player1
         //if the ship is within a certain area around the black hole, pull it into the centre
         if(p1Pos.x < thisPos.x + range && p1Pos.x > thisPos.x -range && p1Pos.y <thisPos.y + range && p1Pos.y > thisPos.y - range)
         {
@@ -36,31 +38,58 @@ public class BlackHole : MonoBehaviour {
 
             if (p1Pos.x < thisPos.x)
             {
-                xVel = p1rb.velocity.x + gravity;
-                //p1rb.velocity = new Vector2(p1rb.velocity.x + gravity, p1rb.velocity.y) * Time.deltaTime;
-                Debug.Log("+x");
+                xVel = p1rb.velocity.x + intensity;
+               
             }
             else if (p1Pos.x > thisPos.x)
             {
-                xVel = p1rb.velocity.x - gravity;
-                //p1rb.velocity = new Vector2(p1rb.velocity.x - gravity, p1rb.velocity.y) * Time.deltaTime;
-                Debug.Log("-x");
+                xVel = p1rb.velocity.x - intensity;
+               
             }
             if (p1Pos.y < thisPos.y)
             {
-                yVel = p1rb.velocity.y + gravity;
-                //p1rb.velocity = new Vector2(p1rb.velocity.x, p1rb.velocity.y + gravity) * Time.deltaTime;
-                Debug.Log("+y");
+                yVel = p1rb.velocity.y + intensity;
+
             }
-            else if (p1Pos.y > thisPos.y + range)
+            else if (p1Pos.y > thisPos.y)
             {
-                yVel = p1rb.velocity.y - gravity;
-                //p1rb.velocity = new Vector2(p1rb.velocity.x, p1rb.velocity.y - gravity) * Time.deltaTime;
-                Debug.Log("-y");
+                yVel = p1rb.velocity.y - intensity;
             }
-            //    Debug.Log("here");
             p1rb.velocity = new Vector2(xVel, yVel) * Time.deltaTime;
 
         }
-	}
-}
+        #endregion player1
+
+        #region player2
+        //if the ship is within a certain area, pull it into the centre
+        if (p2Pos.x < thisPos.x + range && p2Pos.x > thisPos.x - range && p2Pos.y < thisPos.y + range && p2Pos.y > thisPos.y - range)
+        {
+
+            float xVel = 0.0f;
+            float yVel = 0.0f;
+
+            if (p2Pos.x < thisPos.x)
+            {
+                xVel = p2rb.velocity.x + intensity;
+            }
+            else if (p2Pos.x > thisPos.x)
+            {
+                xVel = p2rb.velocity.x - intensity;
+            }
+            if (p2Pos.y < thisPos.y)
+            {
+                yVel = p2rb.velocity.y + intensity;
+            }
+            else if (p2Pos.y > thisPos.y)
+            {
+                yVel = p2rb.velocity.y - intensity;
+            }
+            p2rb.velocity = new Vector2(xVel, yVel) * Time.deltaTime;
+
+        }
+
+
+
+            #endregion player2
+        }
+    }

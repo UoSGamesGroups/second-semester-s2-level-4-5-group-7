@@ -8,7 +8,8 @@ public class fireRocketp1 : MonoBehaviour {
     public GameObject rocketPrefabv2;
     public GameObject BlastRocketUI;
     public GameObject FragmentRocketUI;
-    private GameObject p1CurrentRocket;
+    private GameObject CurrentRocket1;
+    private GameObject CurrentRocket2;
 
 
     private const  int Speed = 15;
@@ -47,7 +48,7 @@ public class fireRocketp1 : MonoBehaviour {
             GameObject rocket = Instantiate(rocketPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
             rocket.transform.rotation = gameObject.transform.rotation;
             rocket.GetComponent<SpriteRenderer>().sprite = blast;
-            p1CurrentRocket = rocket;
+            CurrentRocket1 = rocket;
             fired = true;
         }
         //instantiate a rocket, set it as current and change fired to true 
@@ -56,15 +57,23 @@ public class fireRocketp1 : MonoBehaviour {
             GameObject rocket = Instantiate(rocketPrefabv2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
             rocket.transform.rotation = gameObject.transform.rotation;
             rocket.GetComponent<SpriteRenderer>().sprite = frag;
-            p1CurrentRocket = rocket;
+            CurrentRocket2 = rocket;
             fired2 = true;
         }
         //give the rockets their velocity
-        if (p1CurrentRocket != null)
+        if (CurrentRocket1 != null)
         {
-            p1CurrentRocket.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
-            p1CurrentRocket = null;
+            CurrentRocket1.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
+            CurrentRocket1 = null;
         }
+        if(CurrentRocket2 != null)
+        {
+            CurrentRocket2.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
+            CurrentRocket2 = null;
+        }
+
+
+        #region Cooldown
         //change ui sprite to the on cooldown sprite and handle the cooldown
         if (fired)
         {
@@ -90,5 +99,6 @@ public class fireRocketp1 : MonoBehaviour {
                 FragmentRocketUI.GetComponent<SpriteRenderer>().sprite = Frag;
             }
         }
+        #endregion
     }
 }

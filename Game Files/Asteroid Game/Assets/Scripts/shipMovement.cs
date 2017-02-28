@@ -7,7 +7,9 @@ using UnityEngine;
 public class shipMovement : MonoBehaviour {
     private GameObject player1;
     private GameObject player2;
-    const int MaxSpeed = 5;
+
+    private const int MaxSpeed = 5;
+
     private float p1currSpeed = 0;
     private float p2currSpeed = 0;
 
@@ -64,6 +66,7 @@ public class shipMovement : MonoBehaviour {
             {
                 p1currSpeed += 2f * Time.deltaTime;
             }
+            player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);
         }
 
 
@@ -106,6 +109,7 @@ public class shipMovement : MonoBehaviour {
             {
                 p2currSpeed += 2f * Time.deltaTime;
             }
+            player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.LeftArrow)) { player2.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
         if (Input.GetKey(KeyCode.RightArrow)) { player2.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
