@@ -9,8 +9,11 @@ public class BlackHole : MonoBehaviour {
     private GameObject p2;
     private Rigidbody2D p1rb;//player 1's rigidbody
     private Rigidbody2D p2rb;//player 2's ri
-    private const int range = 4;
-    private const float intensity = 100f;
+
+    public asteroidSpawner asteroid;
+
+    private const int range = 20;
+    private const float intensity = 200f;
 
 
 	// Use this for initialization
@@ -19,6 +22,7 @@ public class BlackHole : MonoBehaviour {
         p2 = GameObject.Find("player2");
         p1rb = p1.GetComponent<Rigidbody2D>();
         p2rb = p2.GetComponent<Rigidbody2D>();
+
 
     }
 
@@ -90,6 +94,44 @@ public class BlackHole : MonoBehaviour {
 
 
 
-            #endregion player2
+        #endregion player2
+
+
+        #region asteroids
+        for(int i = 0; i < asteroid.maxAsteroids; i++)
+        {
+            Vector2 astPos = asteroid.asteroidArr[i].transform.position;
+            Rigidbody2D astRb = asteroid.asteroidArr[i].GetComponent<Rigidbody2D>();
+            if (astPos.x < thisPos.x + range && astPos.x > thisPos.x - range && astPos.y < thisPos.y + range && astPos.y > thisPos.y - range)
+            {
+                float xVel = 0.0f;
+                float yVel = 0.0f;
+
+                if (astPos.x < thisPos.x)
+                {
+                    xVel = p1rb.velocity.x + intensity;
+
+                }
+                else if (astPos.x > thisPos.x)
+                {
+                    xVel = p1rb.velocity.x - intensity;
+
+                }
+                if (astPos.y < thisPos.y)
+                {
+                    yVel = p1rb.velocity.y + intensity;
+
+                }
+                else if (astPos.y > thisPos.y)
+                {
+                    yVel = p1rb.velocity.y - intensity;
+                }
+                astRb.velocity = new Vector2(xVel, yVel) * Time.deltaTime;
+            }
         }
+
+
+
+        #endregion asteroids
     }
+}

@@ -34,8 +34,6 @@ public class shipMovement : MonoBehaviour {
             {
                 p1currSpeed += 1f * Time.deltaTime;
             }
-            //apply movement based on the speed
-            player1.transform.Translate(new Vector3(0,p1currSpeed,0)*Time.deltaTime);
         }
         if (!Input.GetKey(KeyCode.W))
         {
@@ -45,7 +43,6 @@ public class shipMovement : MonoBehaviour {
                 p1currSpeed -= 2f * Time.deltaTime;
              
             }
-            player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);
         }
 
 
@@ -57,8 +54,6 @@ public class shipMovement : MonoBehaviour {
             {
                 p1currSpeed -= 1f * Time.deltaTime;
             }
-            //apply movement based on speed
-            player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);//add velocity backwards
         }
         if(!Input.GetKey(KeyCode.S))
         {
@@ -66,9 +61,8 @@ public class shipMovement : MonoBehaviour {
             {
                 p1currSpeed += 2f * Time.deltaTime;
             }
-            player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);
         }
-
+        player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.A)) { player1.transform.Rotate(new Vector3(0,0,1.5f) /** Time.deltaTime*/); }
         if (Input.GetKey(KeyCode.D)) { player1.transform.Rotate(new Vector3(0,0,-1.5f)/* * Time.deltaTime*/); }
@@ -83,7 +77,6 @@ public class shipMovement : MonoBehaviour {
             {
                 p2currSpeed += 1f * Time.deltaTime;
             }
-            player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);//add velocity forwards
         }
         if(!Input.GetKey(KeyCode.UpArrow))
         {
@@ -91,7 +84,6 @@ public class shipMovement : MonoBehaviour {
             {
                 p2currSpeed -= 2f * Time.deltaTime;
             }
-            player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
@@ -100,7 +92,6 @@ public class shipMovement : MonoBehaviour {
             {
                 p2currSpeed -= 1f * Time.deltaTime;
             }
-                player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);
         }//add velocity backwards
 
         if (!Input.GetKey(KeyCode.DownArrow))
@@ -109,8 +100,9 @@ public class shipMovement : MonoBehaviour {
             {
                 p2currSpeed += 2f * Time.deltaTime;
             }
-            player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);
         }
+        player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);//add velocity forwards
+
         if (Input.GetKey(KeyCode.LeftArrow)) { player2.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
         if (Input.GetKey(KeyCode.RightArrow)) { player2.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
 
