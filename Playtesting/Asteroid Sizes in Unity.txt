@@ -1,0 +1,10 @@
+Asteroid Sizes in Unity
+
+Original:
+Min size -> 1
+Max size -> 2
+
+
+New:
+Min size -> 0.65
+Max size -> 1
