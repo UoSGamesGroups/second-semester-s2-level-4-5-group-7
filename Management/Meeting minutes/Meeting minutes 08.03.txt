@@ -1,0 +1,20 @@
+08/03 - 9am - 10am
+
+Group members in attendance:- Oliver, Thomas, Amy
+
+George did not attend, an email was sent 20 minutes before the start of our meeting with Chris, his reason was that he had a conflicting
+doctor's appointment.
+
+We discussed different ways to represent the UI in response to playtesters saying that the UI was a little hard to see. These differing ways
+were to either make the current UI larger, or to display them on a static space on the screen. We decided to take a screenshot of all 3 different
+representations and conduct some playtesting this week to figure out which way would be the most pertinent.
+
+Amy's tasks are to create an animation for the rocket explosions and the player's death animation. Amy also has a playtesting task this week.
+
+Thomas' tasks are to design the flow of the menu system (the same task as last week as the task was vague and Tom was unsure as to what needed to be done)
+He also has a playtesting task and a task to balance the variables surrounding the black hole in unity.
+
+George's tasks are the same as last week - to animate the player's thrusters and to animate the black hole.
+
+Oliver's tasks are to Alter the UI in the aforementioned ways, to increase the size of the player ships, to allow for both current backgrounds to be shown at some point,
+to animate the planet background, to give asteroid's their own velocity and to make asteroids which respawn, respawn on the outer skirts of the game area and move inwards.

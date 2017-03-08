@@ -12,8 +12,8 @@ public class BlackHole : MonoBehaviour {
 
     public asteroidSpawner asteroid;
 
-    private const int range = 20;
-    private const float intensity = 200f;
+    public int range = 20;
+    public float intensity = 200f;
 
 
 	// Use this for initialization
