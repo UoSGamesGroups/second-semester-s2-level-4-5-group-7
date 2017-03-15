@@ -1,0 +1,15 @@
+15/03/17 - 12:30-13:00
+
+Members in attendance: Oliver, Amy
+
+Tom sent an email on the 14th saying that he had overslept that day and could not make it to university in time due to missing a train the previous day.
+George sent an email saying that he would not be attending meetings again this week. Both members did not attend meetings with lecturers either.
+
+Both Tom and George did not complete any work for the previous week's sprint so they have been assigned these tasks again. As per Rob's instruction
+George has been assigned non-essential work, and Tom's work (one task of which was carried over from the sprint before the one in question) has been 
+reassigned to him however it is an important task which blocks one given to Amy this week so it has been communicated in the task description that this task
+must be completed before saturday so as to allow Amy time to complete her task.
+
+Oliver has been assigned bug fixing, implementing animations not covered by george's task and to change the way parts of the ui to work to show that they are cooldowns
+
+Amy has tasks to change the black hole art to one that fits the games art style better, to create menu art and to collect playtesting feedback.
