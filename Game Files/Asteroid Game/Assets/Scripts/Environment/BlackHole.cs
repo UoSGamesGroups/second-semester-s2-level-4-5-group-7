@@ -8,7 +8,7 @@ public class BlackHole : MonoBehaviour {
     private GameObject p1;
     private GameObject p2;
     private Rigidbody2D p1rb;//player 1's rigidbody
-    private Rigidbody2D p2rb;//player 2's ri
+    private Rigidbody2D p2rb;//player 2's rigidbody
 
     public asteroidSpawner asteroid;
 
@@ -42,22 +42,22 @@ public class BlackHole : MonoBehaviour {
 
             if (p1Pos.x < thisPos.x)
             {
-                xVel = p1rb.velocity.x + intensity;
+                xVel = p1rb.velocity.x + intensity *0.7f;
                
             }
             else if (p1Pos.x > thisPos.x)
             {
-                xVel = p1rb.velocity.x - intensity;
+                xVel = p1rb.velocity.x - intensity*0.7f;
                
             }
             if (p1Pos.y < thisPos.y)
             {
-                yVel = p1rb.velocity.y + intensity;
+                yVel = p1rb.velocity.y + intensity*0.7f;
 
             }
             else if (p1Pos.y > thisPos.y)
             {
-                yVel = p1rb.velocity.y - intensity;
+                yVel = p1rb.velocity.y - intensity*0.7f;
             }
             p1rb.velocity = new Vector2(xVel, yVel) * Time.deltaTime;
 
@@ -74,19 +74,19 @@ public class BlackHole : MonoBehaviour {
 
             if (p2Pos.x < thisPos.x)
             {
-                xVel = p2rb.velocity.x + intensity;
+                xVel = p2rb.velocity.x + intensity*0.7f;
             }
             else if (p2Pos.x > thisPos.x)
             {
-                xVel = p2rb.velocity.x - intensity;
+                xVel = p2rb.velocity.x - intensity * 0.7f;
             }
             if (p2Pos.y < thisPos.y)
             {
-                yVel = p2rb.velocity.y + intensity;
+                yVel = p2rb.velocity.y + intensity * 0.7f;
             }
             else if (p2Pos.y > thisPos.y)
             {
-                yVel = p2rb.velocity.y - intensity;
+                yVel = p2rb.velocity.y - intensity * 0.7f;
             }
             p2rb.velocity = new Vector2(xVel, yVel) * Time.deltaTime;
 
@@ -134,4 +134,6 @@ public class BlackHole : MonoBehaviour {
 
         #endregion asteroids
     }
+
+
 }

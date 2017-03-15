@@ -5,10 +5,12 @@ using UnityEngine;
 public class rocketExplosion : MonoBehaviour {
     private int maxExplosionRadius = 4;
     private bool explode;
+    public Animator animation;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         explode = false;
+        animation = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -17,10 +19,6 @@ public class rocketExplosion : MonoBehaviour {
         {
             gameObject.GetComponent<CircleCollider2D>().radius += 0.1f;
         }
-        if(gameObject.GetComponent<CircleCollider2D>().radius>= maxExplosionRadius)
-        {
-            Destroy(gameObject);
-        }
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,6 +26,14 @@ public class rocketExplosion : MonoBehaviour {
         {
             explode = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(waitForAnim());
         }
+    }
+    IEnumerator waitForAnim()
+    {
+        animation.SetBool("Explode", true);
+        yield return new WaitForSeconds(0.5f);
+        animation = null;
+        Destroy(gameObject);
     }
 }

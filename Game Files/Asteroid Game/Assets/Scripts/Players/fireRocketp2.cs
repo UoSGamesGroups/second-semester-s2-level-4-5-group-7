@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class fireRocketp2 : MonoBehaviour
@@ -28,10 +29,8 @@ public class fireRocketp2 : MonoBehaviour
     private float FragmentCooldown = 4f;
     #endregion
     #region Sprites for UI
-    public Sprite Blast;
-    public Sprite Frag;
-    public Sprite BlastCD;
-    public Sprite FragCD;
+    public Image Blast;
+    public Image Frag;
     #endregion
     #endregion
 
@@ -74,28 +73,37 @@ public class fireRocketp2 : MonoBehaviour
             CurrentRocket2 = null;
         }
         #region cooldown
-        //change ui sprite to the on cooldown sprite and handle the cooldown
         if (fired)
         {
-            BlastRocketUI.GetComponent<SpriteRenderer>().sprite = BlastCD;
+            //if the cooldown is max, set fill amount to 0
+            if (cooldown == BlastCooldown)
+                Blast.fillAmount = 0;
+
+            //reduce cooldown by 1 per second and divide 1 (max fill amount) by the number of seconds
             cooldown -= 1 * Time.deltaTime;
-            if(cooldown <= 0)
+            Blast.fillAmount += (1/BlastCooldown) * Time.deltaTime;
+            //if cooldown is 0, reset the cooldown and allow the player to fire
+
+            if (cooldown <= 0)
             {
                 fired = false;
                 cooldown = BlastCooldown;
-                BlastRocketUI.GetComponent<SpriteRenderer>().sprite = Blast;
             }
         }   
-        //change ui sprite to the on cooldown sprite and handle the cooldown
        if (fired2)
         {
-            FragmentRocketUI.GetComponent<SpriteRenderer>().sprite = FragCD;
+            //if cooldown is max, set fill amount to 0
+            if (cooldown2 == FragmentCooldown)
+                Frag.fillAmount = 0;
+
+            //reduce cooldown by 1 per second and divide 1(max fill amount) by the number of seconds
             cooldown2 -= 1 * Time.deltaTime;
+            Frag.fillAmount += (1/FragmentCooldown) * Time.deltaTime;
+            //if cooldown is 0, reset the cooldown and allow the player to fire
             if(cooldown2<= 0)
             {
                 fired2 = false;
                 cooldown2 = FragmentCooldown;
-                FragmentRocketUI.GetComponent<SpriteRenderer>().sprite = Frag;
             }
         }
         #endregion cooldown
