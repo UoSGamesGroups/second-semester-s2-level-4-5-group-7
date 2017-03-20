@@ -1,0 +1,8 @@
+Range: 14
+Intensity: 100
+Mass: 0.5
+Min Uptime: 0.5
+Max Uptime: 6
+Min Downtime: 5
+Max Downtime: 10
+

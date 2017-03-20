@@ -1,3 +1,0 @@
-Range: 12
-Intensity: 100
-Mass: 0.5
