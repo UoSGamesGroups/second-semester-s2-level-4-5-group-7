@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public GameObject blackHole;
-
+    public bool Paused;
 	// Use this for initialization
 	void Start () {
 		

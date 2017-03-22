@@ -19,21 +19,20 @@ public class rocketExplosion : MonoBehaviour {
         {
             gameObject.GetComponent<CircleCollider2D>().radius += 0.1f;
         }
+        if(gameObject.GetComponent<CircleCollider2D>().radius >= maxExplosionRadius)
+        {
+            Destroy(gameObject);
+        }
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "asteroid")
         {
             explode = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            StartCoroutine(waitForAnim());
         }
     }
-    IEnumerator waitForAnim()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         animation.SetBool("Explode", true);
-        yield return new WaitForSeconds(0.5f);
-        animation = null;
-        Destroy(gameObject);
     }
 }

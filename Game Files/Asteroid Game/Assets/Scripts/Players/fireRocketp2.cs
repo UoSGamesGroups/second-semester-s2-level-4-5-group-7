@@ -21,6 +21,7 @@ public class fireRocketp2 : MonoBehaviour
     private float cooldown2 = 4;
     private float cooldown = 2;
 
+    private GameManager gm;
 
     public Sprite frag;
     public Sprite blast;
@@ -36,41 +37,45 @@ public class fireRocketp2 : MonoBehaviour
 
     private void Start()
     {
+        gm = GameObject.Find("gameManager").GetComponent<GameManager>();
         cooldown = BlastCooldown;
         cooldown2 = FragmentCooldown;
     }
     // Update is called once per frame
     void Update()
     {
-        //instantiate a rocket, set it as current and change fired to true
-        if (Input.GetKeyDown(KeyCode.RightControl)&& !fired)
+        if (!gm.Paused)
         {
-            GameObject rocket = Instantiate(rocketPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
-            rocket.transform.rotation = gameObject.transform.rotation;
-            rocket.GetComponent<SpriteRenderer>().sprite = blast;
-            CurrentRocket = rocket;
-            fired = true;
-        }
-        //instantiate a rocket, set it as current and change fired to true
-        if (Input.GetKeyDown(KeyCode.RightShift) && !fired2)
-        {
-            GameObject rocket = Instantiate(rocketprefabv2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
-            rocket.transform.rotation = gameObject.transform.rotation;
-            rocket.GetComponent<SpriteRenderer>().sprite = frag;
-            CurrentRocket2 = rocket;
-            fired2 = true;
-        }
-        //give the rockets their velocity
-        if (CurrentRocket != null)
-        {
-            CurrentRocket.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
-            CurrentRocket = null;
-        }
+            //instantiate a rocket, set it as current and change fired to true
+            if (Input.GetKeyDown(KeyCode.RightControl) && !fired)
+            {
+                GameObject rocket = Instantiate(rocketPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
+                rocket.transform.rotation = gameObject.transform.rotation;
+                rocket.GetComponent<SpriteRenderer>().sprite = blast;
+                CurrentRocket = rocket;
+                fired = true;
+            }
+            //instantiate a rocket, set it as current and change fired to true
+            if (Input.GetKeyDown(KeyCode.RightShift) && !fired2)
+            {
+                GameObject rocket = Instantiate(rocketprefabv2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity) as GameObject;
+                rocket.transform.rotation = gameObject.transform.rotation;
+                rocket.GetComponent<SpriteRenderer>().sprite = frag;
+                CurrentRocket2 = rocket;
+                fired2 = true;
+            }
+            //give the rockets their velocity
+            if (CurrentRocket != null)
+            {
+                CurrentRocket.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
+                CurrentRocket = null;
+            }
 
-        if (CurrentRocket2 != null)
-        {
-            CurrentRocket2.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
-            CurrentRocket2 = null;
+            if (CurrentRocket2 != null)
+            {
+                CurrentRocket2.GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
+                CurrentRocket2 = null;
+            }
         }
         #region cooldown
         if (fired)

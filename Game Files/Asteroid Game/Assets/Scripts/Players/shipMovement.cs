@@ -12,12 +12,13 @@ public class shipMovement : MonoBehaviour {
 
     private float p1currSpeed = 0;
     private float p2currSpeed = 0;
-
+    private GameManager gm;
 
 
 
     // Use this for initialization
 	void Start () {
+        gm = GameObject.Find("gameManager").GetComponent<GameManager>();
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
 	}
@@ -65,9 +66,11 @@ public class shipMovement : MonoBehaviour {
         }
         player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.A)) { player1.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
-        if (Input.GetKey(KeyCode.D)) { player1.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
-
+        if (!gm.Paused)
+        {
+            if (Input.GetKey(KeyCode.A)) { player1.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
+            if (Input.GetKey(KeyCode.D)) { player1.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
+        }
 
         #endregion
 
@@ -106,9 +109,11 @@ public class shipMovement : MonoBehaviour {
         }
         player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);//add velocity forwards
 
-        if (Input.GetKey(KeyCode.LeftArrow)) { player2.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
-        if (Input.GetKey(KeyCode.RightArrow)) { player2.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
-
+        if (!gm.Paused)
+        {
+            if (Input.GetKey(KeyCode.LeftArrow)) { player2.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
+            if (Input.GetKey(KeyCode.RightArrow)) { player2.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
+        }
         else
         {
             player1.transform.Rotate(new Vector3(0, 0, 0));

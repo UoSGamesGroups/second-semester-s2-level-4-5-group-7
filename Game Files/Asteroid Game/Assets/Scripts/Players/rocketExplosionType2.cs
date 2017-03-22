@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,21 +19,23 @@ public class rocketExplosionType2 : MonoBehaviour {
         {
             gameObject.GetComponent<CircleCollider2D>().radius += 0.1f;
         }
+        if(gameObject.GetComponent<CircleCollider2D>().radius >= maxExplosionRadius)
+        {
+            Destroy(gameObject);
+        }
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "asteroid")
         {
             explode = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            StartCoroutine(waitForAnim());
+            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+           
         }
     }
-    IEnumerator waitForAnim()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         animation.SetBool("Explode", true);
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
-        animation.SetBool("Explode", false);
     }
+
 }

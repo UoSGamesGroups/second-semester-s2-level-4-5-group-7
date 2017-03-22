@@ -6,7 +6,7 @@ public class HealthController : MonoBehaviour {
 
     public int Health;
    [SerializeField] private bool Immune;
-
+    public Animator animation;
 	// Use this for initialization
 	void Start ()
     {
@@ -17,8 +17,7 @@ public class HealthController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        	
-        	
+        animation.SetInteger("Health", Health);
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
