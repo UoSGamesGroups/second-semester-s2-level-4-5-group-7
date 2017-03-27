@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 615dc06411cbc2a4db04014edf2cf4ac
-timeCreated: 1489061289
+timeCreated: 1490654395
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -74,6 +74,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,9 +128,9 @@ TextureImporter:
       name: Black Hole sprite sheet full Saturated_3
       rect:
         serializedVersion: 2
-        x: 1474
+        x: 1473
         y: 689
-        width: 263
+        width: 264
         height: 263
       alignment: 0
       pivot: {x: 0, y: 0}
