@@ -22,6 +22,7 @@ public class StartMenu : MonoBehaviour
     }
     public void OnInstructionClick()
     {
+        SceneManager.LoadScene("Instructions");
         Debug.Log("Instructions Pressed");
     }
 }

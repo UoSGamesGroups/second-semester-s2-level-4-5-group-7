@@ -1,0 +1,14 @@
+29/03/17 - 9:30 - 11:40 members arrived and 12:30-1pm following the presentation
+Members in attendance: from 9:30, Oliver and Amy. From 10:00 Thomas. From 11:40, George
+
+We have decided to reduce tasks to 3 hours per person, and 4 hours for Oliver due to Easter coming up and looming deadlines
+
+Discussed the presentation and practiced it. 
+Following the presentation we discussed what polishing tasks we could do, from feeback from the panel we have realised that we must 
+find some way for risk/reward in our game, so Thomas and George have been given a task each to research other games and come up with a 
+way that we can implement meaningful risk/reward in our game.
+Amy has a task to polish some variables in the game relating to the black hole and rockets.
+Oliver's tasks are to implement some assets created in the previous two weeks and to implement some final features discussed due to both 
+playtesting and feedback from the panel.
+
+Due to feeback from the panel, we will not be creating any new art assets.

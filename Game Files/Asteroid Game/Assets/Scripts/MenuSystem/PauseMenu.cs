@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour {
     public void OnInstructionClick()
     {
         Debug.Log("Instruction Clicked");
+        SceneManager.LoadScene("Instructions");
     }
     public void OnQuitClick()
     {

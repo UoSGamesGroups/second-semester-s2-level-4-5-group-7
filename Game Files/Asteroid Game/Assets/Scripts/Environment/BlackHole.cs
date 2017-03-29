@@ -12,10 +12,13 @@ public class BlackHole : MonoBehaviour {
 
     public asteroidSpawner asteroid;
 
-    public int range = 20;
-    public float intensity = 200f;
+    public float maxRange = 24f;
+    public float maxIntensity = 400f;
+    public float minRange = 12f;
+    public float minIntensity = 200f;
 
-
+    public float range;
+    public float intensity;
 	// Use this for initialization
 	void Start () {
         p1 = GameObject.Find("player1");

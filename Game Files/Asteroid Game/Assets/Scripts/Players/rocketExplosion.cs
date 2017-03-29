@@ -26,7 +26,13 @@ public class rocketExplosion : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "asteroid")
+        if (collision.tag == "Player1" || collision.tag == "Player2")
+        {
+            animation.SetBool("Explode", true);
+            Destroy(gameObject);
+
+        }
+        if (collision.tag == "asteroid")
         {
             explode = true;
         }
