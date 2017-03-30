@@ -7,10 +7,12 @@ public class rocketExplosionType2 : MonoBehaviour {
     public bool explode;
     public Animator animation;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         explode = false;
         animation = GetComponent<Animator>();
+        
 	}
 	
 	// Update is called once per frame
@@ -30,13 +32,12 @@ public class rocketExplosionType2 : MonoBehaviour {
         {
             animation.SetBool("Explode", true);
             Destroy(gameObject);
-            
+            //StartCoroutine(Shake());
         }
         if(collision.tag == "asteroid")
         {
             explode = true;
             //gameObject.GetComponent<SpriteRenderer>().enabled = false;
-           
         }
         
     }
@@ -44,5 +45,6 @@ public class rocketExplosionType2 : MonoBehaviour {
     {
         animation.SetBool("Explode", true);
     }
+  
 
 }

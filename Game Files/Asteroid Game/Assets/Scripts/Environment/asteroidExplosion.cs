@@ -15,17 +15,27 @@ public class asteroidExplosion : MonoBehaviour {
     public GameObject asteroid8;
 
     private GameObject asteroidPiece;
-    
 
-	// Use this for initialization
-	void Start () {
+    private static float duration = 0.5f;
+    private static float magnitude = 0.5f;
+
+    // Use this for initialization
+    void Start () {
 	}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //instantiate 4 smaller asteroids with less mass and a random velocity
-        if (collision.collider.tag == "rocketT2")
+        if(collision.collider.tag == "p1Rocket"|| collision.collider.tag == "p2Rocket")
         {
+            StartCoroutine(Shake());
+        }
+
+
+
+        //instantiate 4 smaller asteroids with less mass and a random velocity
+        if (collision.collider.tag == "p1rocketT2"|| collision.collider.tag == "p2rocketT2")
+        {
+           
             for (int i = 0; i < 4; i++)
             {
                 int randAst = Random.Range(0, 8);
@@ -65,6 +75,35 @@ public class asteroidExplosion : MonoBehaviour {
                 asteroid.GetComponent<Rigidbody2D>().mass = gameObject.GetComponent<Rigidbody2D>().mass / 4;     
             }
             gameObject.SetActive(false);
+           // Camera.main.transform.position = new Vector3(0, 0, -10);
         }
+    }
+    IEnumerator Shake()//ref  - http://unitytipsandtricks.blogspot.co.uk/2013/05/camera-shake.html
+    {
+
+        float elapsed = 0.0f;
+
+        Vector3 originalCamPos = Camera.main.transform.position;
+
+        while (elapsed < duration)
+        {
+
+            elapsed += Time.deltaTime;
+
+            float percentComplete = elapsed / duration;
+            float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
+
+            // map value to [-1, 1]
+            float x = Random.value * 2.0f - 1.0f;
+            float y = Random.value * 2.0f - 1.0f;
+            x *= magnitude * damper;
+            y *= magnitude * damper;
+
+            Camera.main.transform.position = new Vector3(x, y, originalCamPos.z);
+
+            yield return null;
+        }
+
+        Camera.main.transform.position = originalCamPos;
     }
 }

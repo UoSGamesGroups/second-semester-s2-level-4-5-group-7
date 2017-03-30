@@ -18,7 +18,7 @@ public class fireRocketp1 : MonoBehaviour {
     private bool fired2 = false;
     private float cooldown2;
     private bool fired = false;
-
+  
 
     public Sprite frag;
     public Sprite blast;
@@ -114,4 +114,8 @@ public class fireRocketp1 : MonoBehaviour {
         }
         #endregion
     }
+
+   
+
+
 }

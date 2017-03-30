@@ -7,11 +7,13 @@ public class rocketExplosion : MonoBehaviour {
     private bool explode;
     public Animator animation;
 
+
     // Use this for initialization
     void Start () {
         explode = false;
         animation = GetComponent<Animator>();
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,7 +32,6 @@ public class rocketExplosion : MonoBehaviour {
         {
             animation.SetBool("Explode", true);
             Destroy(gameObject);
-
         }
         if (collision.tag == "asteroid")
         {
