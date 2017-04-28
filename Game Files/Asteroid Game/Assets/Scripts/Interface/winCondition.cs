@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 enum Winner
 {
@@ -22,7 +23,8 @@ public class winCondition : MonoBehaviour {
     public Text winner;
 
     Winner victor;
-
+    bool gameEnd;
+    bool toStart;
     void Start ()
     {
         //assign player game objects
@@ -39,7 +41,7 @@ public class winCondition : MonoBehaviour {
         if (p1Health.Health <= 0) victor = Winner.Player2;
         else if (p2Health.Health <= 0) victor = Winner.Player1;
         else if (p1Health.Health <= 0 && p2Health.Health <= 0) victor = Winner.Tie;
-
+ 
         //use a switch statement to define the text for the winner based on the previous set of statements
         switch(victor)
         {
@@ -47,14 +49,36 @@ public class winCondition : MonoBehaviour {
                 winner.text = "";
                 break;
             case Winner.Player1:
-                winner.text = "Winner: Player 1"; 
+                gameEnd = true;
+                winner.text = "Winner: Player 1";
+               // Time.timeScale = 0;
+                StartCoroutine(goToStart());
                 break;
             case Winner.Player2:
+                gameEnd = true;
                 winner.text = "Winner: Player 2";
+             //   Time.timeScale = 0;
+                StartCoroutine(goToStart());
+
                 break;
             case Winner.Tie:
+                gameEnd = true;
                 winner.text = "Tied Game";
+             //   Time.timeScale = 0;
+                StartCoroutine(goToStart());
                 break;
         }
+        if(gameEnd && !toStart)
+        {
+            StartCoroutine(goToStart());
+            toStart = true;
+        }
+    }
+
+    IEnumerator goToStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("StartMenu");
+
     }
 }

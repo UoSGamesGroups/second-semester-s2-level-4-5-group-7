@@ -1,0 +1,16 @@
+Time: 10:50
+
+No formal meeting this week, multiple emails have been sent in the previous week chasing up work from both George and Thomas, both were uncommunicative
+until 27/04 when Thomas replied to the emails saying that he had been experiencing problems with 3DS max which had caused him to forgo finishing any group project
+work. 
+
+Work from before easter from both Thomas and George was unfinished and so has been reassigned for the coming week.
+Amy has been issued a doctor's note due to acute tonsillitis saying that she is unfit for work for a week so her hours have been reduced to 3 this week to account for this.
+Oliver has been assigned a full 6 hours.
+
+Amy's tasks are to alter her background images to bring the colour scheme in line with the new colour scheme created before the easter break and 
+to create a sprite to be implemented as visual feedback for the player that they have not been injured by blocking a projectile.
+
+
+Oliver's tasks are to check the fidelity of numerous randomisation systems which were implemented and to implement the loss condition fully. 
+Other tasks include implementing the work that Amy was set (BLOCKER) and creating the powerpoint presentation for the next presentation

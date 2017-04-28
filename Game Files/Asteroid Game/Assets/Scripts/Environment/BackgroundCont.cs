@@ -16,14 +16,15 @@ public class BackgroundCont : MonoBehaviour {
 
         int randomBg = Random.Range(0, 2);
 
-        if(randomBg == 0)
+        
+        if (randomBg == 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = bg1;
-            StartCoroutine(playAnim());
+            gameObject.GetComponent<SpriteRenderer>().sprite = bg2;
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = bg2;
+            gameObject.GetComponent<SpriteRenderer>().sprite = bg1;
+            StartCoroutine(playAnim());
         }
 	}
     private IEnumerator repeatCoroutine(int Max_seconds, int Min_seconds)

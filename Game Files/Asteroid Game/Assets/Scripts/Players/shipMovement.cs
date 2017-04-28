@@ -66,7 +66,7 @@ public class shipMovement : MonoBehaviour {
         }
         player1.transform.Translate(new Vector3(0, p1currSpeed, 0) * Time.deltaTime);
 
-        if (!gm.Paused)
+        if (!gm.Paused && Time.timeScale != 0)
         {
             if (Input.GetKey(KeyCode.A)) { player1.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
             if (Input.GetKey(KeyCode.D)) { player1.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
@@ -109,7 +109,7 @@ public class shipMovement : MonoBehaviour {
         }
         player2.transform.Translate(new Vector3(0, p2currSpeed, 0) * Time.deltaTime);//add velocity forwards
 
-        if (!gm.Paused)
+        if (!gm.Paused && Time.timeScale != 0)
         {
             if (Input.GetKey(KeyCode.LeftArrow)) { player2.transform.Rotate(new Vector3(0, 0, 1.5f) /** Time.deltaTime*/); }
             if (Input.GetKey(KeyCode.RightArrow)) { player2.transform.Rotate(new Vector3(0, 0, -1.5f)/* * Time.deltaTime*/); }
