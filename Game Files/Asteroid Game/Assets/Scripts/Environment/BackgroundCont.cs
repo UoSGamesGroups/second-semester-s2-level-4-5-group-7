@@ -8,22 +8,23 @@ public class BackgroundCont : MonoBehaviour {
     public Sprite bg2;
 
     public Animator anim;
+    int randomBg;
 
+    // Use this for initialization
+    void Start () {
+     anim = GetComponent<Animator>();
 
-	// Use this for initialization
-	void Start () {
-       anim = GetComponent<Animator>();
-
-        int randomBg = Random.Range(0, 2);
+       randomBg = Random.Range(0, 2);
 
         
         if (randomBg == 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = bg2;
+            gameObject.GetComponent<SpriteRenderer>().sprite = bg1;
+            StartCoroutine(playAnim());
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = bg1;
+            gameObject.GetComponent<SpriteRenderer>().sprite = bg2;
             StartCoroutine(playAnim());
         }
 	}
@@ -35,11 +36,22 @@ public class BackgroundCont : MonoBehaviour {
     }
     private IEnumerator playAnim()
     {
-        anim.SetBool("Play", true);
-        yield return new WaitForSeconds(0.5f);
-        anim.SetBool("Play",false);
-        StartCoroutine(repeatCoroutine(15, 30));
-        Debug.Log("Animation stopped");
+        if (randomBg == 0)
+        {
+            anim.SetBool("PlayPlanet", true);
+            yield return new WaitForSeconds(0.5f);
+            anim.SetBool("PlayPlanet", false);
+            StartCoroutine(repeatCoroutine(15, 30));
+            Debug.Log("Animation stopped");
+        }
+        else
+        {
+            anim.SetBool("PlayNebula", true);
+            yield return new WaitForSeconds(0.5f);
+            anim.SetBool("PlayNebula", false);
+            StartCoroutine(repeatCoroutine(15, 30));
+            Debug.Log("Animation stopped");
+        }
     }
 
 }
