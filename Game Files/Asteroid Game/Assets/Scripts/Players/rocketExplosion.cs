@@ -9,7 +9,7 @@ public class rocketExplosion : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start () { 
         explode = false;
         animation = GetComponent<Animator>();
 

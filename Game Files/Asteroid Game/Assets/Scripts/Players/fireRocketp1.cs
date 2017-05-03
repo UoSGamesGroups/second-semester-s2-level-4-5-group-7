@@ -13,7 +13,7 @@ public class fireRocketp1 : MonoBehaviour {
     private GameObject CurrentRocket2;
 
 
-    private const  int Speed = 15;
+    private const  int Speed = 20;
     private float cooldown;
     private bool fired2 = false;
     private float cooldown2;
